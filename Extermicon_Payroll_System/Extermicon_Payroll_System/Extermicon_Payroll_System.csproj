@@ -1,0 +1,636 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{03F7C7CF-F3ED-4AB2-AAC0-C16CBA011A26}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Extermicon_Payroll_System</RootNamespace>
+    <AssemblyName>Extermicon_Payroll_System</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+    <TargetFrameworkProfile />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Entity">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.EnterpriseServices">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Telerik.Web.UI, Version=2012.3.1205.45, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Telerik\RadControls for ASP.NET AJAX Q3 2012\Bin45\Telerik.Web.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Web.UI.Skins">
+      <HintPath>C:\Program Files (x86)\Telerik\RadControls for ASP.NET AJAX Q3 2012\Bin45\Telerik.Web.UI.Skins.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\Extermicon_logo.png" />
+    <Content Include="Content\jasny-bootstrap.css" />
+    <Content Include="Content\jasny-bootstrap.min.css" />
+    <Content Include="Content\Main.css" />
+    <Content Include="Content\jasny-bootstrap.css.map" />
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jasny-bootstrap.js" />
+    <Content Include="Scripts\jasny-bootstrap.min.js" />
+    <Content Include="ExtermiconDBDataSet.xsc">
+      <DependentUpon>ExtermiconDBDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="ExtermiconDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ExtermiconDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="ExtermiconDBDataSet.xss">
+      <DependentUpon>ExtermiconDBDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="ExtermiconDBDataSets.xsc">
+      <DependentUpon>ExtermiconDBDataSets.xsd</DependentUpon>
+    </Content>
+    <None Include="ExtermiconDBDataSets.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ExtermiconDBDataSets.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="ExtermiconDBDataSets.xss">
+      <DependentUpon>ExtermiconDBDataSets.xsd</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Model\ExtermiconDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ExtermiconDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Model\ExtermiconDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ExtermiconDB.edmx</DependentUpon>
+      <LastGenOutput>ExtermiconDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\ExtermiconDB.edmx.diagram">
+      <DependentUpon>ExtermiconDB.edmx</DependentUpon>
+    </Content>
+    <Content Include="Model\ExtermiconDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ExtermiconDB.edmx</DependentUpon>
+      <LastGenOutput>ExtermiconDB.cs</LastGenOutput>
+    </Content>
+    <None Include="Scripts\jquery-2.1.3.intellisense.js" />
+    <Content Include="Scripts\jquery-2.1.3.js" />
+    <Content Include="Scripts\jquery-2.1.3.min.js" />
+    <Content Include="Scripts\jquery-ui-1.11.2.js" />
+    <Content Include="Scripts\jquery-ui-1.11.2.min.js" />
+    <Content Include="Scripts\jquery.bootstrap.wizard.js" />
+    <Content Include="Scripts\jquery.bootstrap.wizard.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\knockout-3.2.0.debug.js" />
+    <Content Include="Scripts\knockout-3.2.0.js" />
+    <Content Include="Scripts\knockout.mapping-latest.debug.js" />
+    <Content Include="Scripts\knockout.mapping-latest.js" />
+    <Content Include="Scripts\npm.js" />
+    <Content Include="Source\Attendance\Administrator\Account.aspx" />
+    <Content Include="Source\Attendance\Administrator\BatchLogs.aspx" />
+    <Content Include="Source\Attendance\Administrator\Calendar.aspx" />
+    <Content Include="Source\Attendance\Administrator\HDMF.aspx" />
+    <Content Include="Source\Attendance\Administrator\HMO.aspx" />
+    <Content Include="Source\Attendance\Administrator\LoginHistory.aspx" />
+    <Content Include="Source\Attendance\Administrator\LoginReports.aspx" />
+    <Content Include="Source\Attendance\Administrator\Logs.aspx" />
+    <Content Include="Source\Attendance\Administrator\SSS.aspx" />
+    <Content Include="Source\Attendance\Administrator\WitholdingTax.aspx" />
+    <Content Include="Source\Attendance\Login.aspx" />
+    <Content Include="Source\Attendance\User\UserAccount.aspx" />
+    <Content Include="Source\Attendance\User\UserCalendar.aspx" />
+    <Content Include="Source\Attendance\User\UserLoginHistory.aspx" />
+    <Content Include="Source\Payroll\Administrator\AllPayslip.aspx" />
+    <Content Include="Source\Payroll\Administrator\Payslip.aspx" />
+    <Content Include="Source\Payroll\Administrator\Reports.aspx" />
+    <Content Include="Source\Payroll\User\UserPayslip.aspx" />
+    <Content Include="Source\Shared\Logout.aspx" />
+    <Content Include="Source\Shared\server-error.aspx" />
+    <Content Include="Source\Shared\Signin.aspx" />
+    <Content Include="Source\Shared\Unauthorized.aspx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="DAL\DeductionHelper.cs" />
+    <Compile Include="DAL\EmployeeHelper.cs" />
+    <Compile Include="DAL\LoginHelper.cs" />
+    <Compile Include="DAL\SalaryHelper.cs" />
+    <Compile Include="ExtermiconDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ExtermiconDBDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ExtermiconDBDataSets.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ExtermiconDBDataSets.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Helper.cs" />
+    <Compile Include="Model\Deduction.cs">
+      <DependentUpon>ExtermiconDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DeductionType.cs">
+      <DependentUpon>ExtermiconDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Earning.cs">
+      <DependentUpon>ExtermiconDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EarningType.cs">
+      <DependentUpon>ExtermiconDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EmployeeModel.cs" />
+    <Compile Include="Model\ExtermiconDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ExtermiconDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ExtermiconDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ExtermiconDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ExtermiconDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ExtermiconDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PagibigRate.cs">
+      <DependentUpon>PH_DEDUCTIONS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PayPeriod.cs">
+      <DependentUpon>ExtermiconDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PayPeriodType.cs">
+      <DependentUpon>ExtermiconDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Payslip.cs">
+      <DependentUpon>ExtermiconDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PayslipModel.cs" />
+    <Compile Include="Model\PhilHealthRate.cs">
+      <DependentUpon>PH_DEDUCTIONS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PH_DEDUCTIONS.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PH_DEDUCTIONS.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PH_DEDUCTIONS.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PH_DEDUCTIONS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PH_DEDUCTIONS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PH_DEDUCTIONS.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SalaryType.cs">
+      <DependentUpon>PH_DEDUCTIONS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SocialSecurityServiceRate.cs">
+      <DependentUpon>PH_DEDUCTIONS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TaxDependentType.cs">
+      <DependentUpon>PH_DEDUCTIONS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tblEmployee.cs">
+      <DependentUpon>ExtermiconDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tblHoliday.cs">
+      <DependentUpon>ExtermiconDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tblLogin.cs">
+      <DependentUpon>ExtermiconDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tblRole.cs">
+      <DependentUpon>ExtermiconDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tblSchedule.cs">
+      <DependentUpon>ExtermiconDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tblUser.cs">
+      <DependentUpon>ExtermiconDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\UserModel.cs" />
+    <Compile Include="Model\vw_deduction_no_zero.cs">
+      <DependentUpon>ExtermiconDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\vw_earning_no_zero.cs">
+      <DependentUpon>ExtermiconDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\vw_employee_list.cs">
+      <DependentUpon>ExtermiconDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\vw_emp_user.cs">
+      <DependentUpon>ExtermiconDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\vw_emp_with_no_account.cs">
+      <DependentUpon>ExtermiconDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\vw_log_in_history.cs">
+      <DependentUpon>ExtermiconDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\vw_payslip_summary.cs">
+      <DependentUpon>ExtermiconDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\vw_schedule_list.cs">
+      <DependentUpon>ExtermiconDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\vw_today_logs.cs">
+      <DependentUpon>ExtermiconDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\vw_user_schedule.cs">
+      <DependentUpon>ExtermiconDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\WithHoldingTaxRate.cs">
+      <DependentUpon>PH_DEDUCTIONS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Source\Attendance\Administrator\Account.aspx.cs">
+      <DependentUpon>Account.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Source\Attendance\Administrator\Account.aspx.designer.cs">
+      <DependentUpon>Account.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Attendance\Administrator\BatchLogs.aspx.cs">
+      <DependentUpon>BatchLogs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Source\Attendance\Administrator\BatchLogs.aspx.designer.cs">
+      <DependentUpon>BatchLogs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Attendance\Administrator\Calendar.aspx.cs">
+      <DependentUpon>Calendar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Source\Attendance\Administrator\Calendar.aspx.designer.cs">
+      <DependentUpon>Calendar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Attendance\Administrator\HDMF.aspx.cs">
+      <DependentUpon>HDMF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Source\Attendance\Administrator\HDMF.aspx.designer.cs">
+      <DependentUpon>HDMF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Attendance\Administrator\HMO.aspx.cs">
+      <DependentUpon>HMO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Source\Attendance\Administrator\HMO.aspx.designer.cs">
+      <DependentUpon>HMO.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Attendance\Administrator\LoginHistory.aspx.cs">
+      <DependentUpon>LoginHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Source\Attendance\Administrator\LoginHistory.aspx.designer.cs">
+      <DependentUpon>LoginHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Attendance\Administrator\LoginReports.aspx.cs">
+      <DependentUpon>LoginReports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Source\Attendance\Administrator\LoginReports.aspx.designer.cs">
+      <DependentUpon>LoginReports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Attendance\Administrator\Logs.aspx.cs">
+      <DependentUpon>Logs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Source\Attendance\Administrator\Logs.aspx.designer.cs">
+      <DependentUpon>Logs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Attendance\Administrator\SSS.aspx.cs">
+      <DependentUpon>SSS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Source\Attendance\Administrator\SSS.aspx.designer.cs">
+      <DependentUpon>SSS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Attendance\Administrator\WitholdingTax.aspx.cs">
+      <DependentUpon>WitholdingTax.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Source\Attendance\Administrator\WitholdingTax.aspx.designer.cs">
+      <DependentUpon>WitholdingTax.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Attendance\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Source\Attendance\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Attendance\User\UserAccount.aspx.cs">
+      <DependentUpon>UserAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Source\Attendance\User\UserAccount.aspx.designer.cs">
+      <DependentUpon>UserAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Attendance\User\UserCalendar.aspx.cs">
+      <DependentUpon>UserCalendar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Source\Attendance\User\UserCalendar.aspx.designer.cs">
+      <DependentUpon>UserCalendar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Attendance\User\UserLoginHistory.aspx.cs">
+      <DependentUpon>UserLoginHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Source\Attendance\User\UserLoginHistory.aspx.designer.cs">
+      <DependentUpon>UserLoginHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Payroll\Administrator\AllPayslip.aspx.cs">
+      <DependentUpon>AllPayslip.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Source\Payroll\Administrator\AllPayslip.aspx.designer.cs">
+      <DependentUpon>AllPayslip.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Payroll\Administrator\Payslip.aspx.cs">
+      <DependentUpon>Payslip.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Source\Payroll\Administrator\Payslip.aspx.designer.cs">
+      <DependentUpon>Payslip.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Payroll\Administrator\Reports.aspx.cs">
+      <DependentUpon>Reports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Source\Payroll\Administrator\Reports.aspx.designer.cs">
+      <DependentUpon>Reports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Payroll\User\UserPayslip.aspx.cs">
+      <DependentUpon>UserPayslip.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Source\Payroll\User\UserPayslip.aspx.designer.cs">
+      <DependentUpon>UserPayslip.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Shared\Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Source\Shared\Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Shared\server-error.aspx.cs">
+      <DependentUpon>server-error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Source\Shared\server-error.aspx.designer.cs">
+      <DependentUpon>server-error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Shared\Signin.aspx.cs">
+      <DependentUpon>Signin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Source\Shared\Signin.aspx.designer.cs">
+      <DependentUpon>Signin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Shared\Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Source\Shared\Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Shared\Unauthorized.aspx.cs">
+      <DependentUpon>Unauthorized.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Source\Shared\Unauthorized.aspx.designer.cs">
+      <DependentUpon>Unauthorized.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Model\PH_DEDUCTIONS.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PH_DEDUCTIONS.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Model\PH_DEDUCTIONS.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PH_DEDUCTIONS.edmx</DependentUpon>
+      <LastGenOutput>PH_DEDUCTIONS.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\PH_DEDUCTIONS.edmx.diagram">
+      <DependentUpon>PH_DEDUCTIONS.edmx</DependentUpon>
+    </Content>
+    <Content Include="Model\PH_DEDUCTIONS.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PH_DEDUCTIONS.edmx</DependentUpon>
+      <LastGenOutput>PH_DEDUCTIONS.cs</LastGenOutput>
+    </Content>
+    <Content Include="packages.config" />
+    <Content Include="Source\Shared\Site.Master" />
+    <Content Include="Scripts\jquery.bootstrap.wizard.min.js.map" />
+    <Content Include="Scripts\jquery.bootstrap.wizard.js.map" />
+    <Content Include="Scripts\jquery-2.1.3.min.map" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Source\Attendance\Administrator\LoginReports.rdlc" />
+    <EmbeddedResource Include="Source\Payroll\Administrator\Payslip.rdlc" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:52379/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

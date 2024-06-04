@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PH_DEDUCTIONSModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="PH_DEDUCTIONSModelStoreContainer">
+          <EntitySet Name="PagibigRate" EntityType="PH_DEDUCTIONSModel.Store.PagibigRate" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PhilHealthRate" EntityType="PH_DEDUCTIONSModel.Store.PhilHealthRate" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SalaryType" EntityType="PH_DEDUCTIONSModel.Store.SalaryType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SocialSecurityServiceRate" EntityType="PH_DEDUCTIONSModel.Store.SocialSecurityServiceRate" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TaxDependentType" EntityType="PH_DEDUCTIONSModel.Store.TaxDependentType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="WithHoldingTaxRate" EntityType="PH_DEDUCTIONSModel.Store.WithHoldingTaxRate" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK__WithHoldi__salar__145C0A3F" Association="PH_DEDUCTIONSModel.Store.FK__WithHoldi__salar__145C0A3F">
+            <End Role="SalaryType" EntitySet="SalaryType" />
+            <End Role="WithHoldingTaxRate" EntitySet="WithHoldingTaxRate" />
+          </AssociationSet>
+          <AssociationSet Name="FK__WithHoldi__tax_d__15502E78" Association="PH_DEDUCTIONSModel.Store.FK__WithHoldi__tax_d__15502E78">
+            <End Role="TaxDependentType" EntitySet="TaxDependentType" />
+            <End Role="WithHoldingTaxRate" EntitySet="WithHoldingTaxRate" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="PagibigRate">
+          <Key>
+            <PropertyRef Name="pagibig_rate_id" />
+          </Key>
+          <Property Name="pagibig_rate_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="salary_ceiling" Type="decimal" Nullable="false" />
+          <Property Name="salary_flooring" Type="decimal" Nullable="false" />
+          <Property Name="employer_contribution" Type="decimal" Nullable="false" />
+          <Property Name="employee_contribution" Type="decimal" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PhilHealthRate">
+          <Key>
+            <PropertyRef Name="philhealth_rate_id" />
+          </Key>
+          <Property Name="philhealth_rate_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="salary_flooring" Type="decimal" Scale="2" />
+          <Property Name="salary_ceiling" Type="decimal" Scale="2" />
+          <Property Name="employee_contribution" Type="decimal" Scale="2" />
+          <Property Name="employer_contribution" Type="decimal" Scale="2" />
+        </EntityType>
+        <EntityType Name="SalaryType">
+          <Key>
+            <PropertyRef Name="salary_type_id" />
+          </Key>
+          <Property Name="salary_type_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="30" />
+          <Property Name="multiplier30" Type="decimal" Nullable="false" Scale="2" />
+        </EntityType>
+        <EntityType Name="SocialSecurityServiceRate">
+          <Key>
+            <PropertyRef Name="sss_rate_id" />
+          </Key>
+          <Property Name="sss_rate_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="salary_flooring" Type="decimal" Scale="2" />
+          <Property Name="salary_ceiling" Type="decimal" Scale="2" />
+          <Property Name="employee_contribution" Type="decimal" Scale="2" />
+          <Property Name="employer_contribution" Type="decimal" Scale="2" />
+          <Property Name="total_contribution" Type="decimal" Scale="2" />
+        </EntityType>
+        <EntityType Name="TaxDependentType">
+          <Key>
+            <PropertyRef Name="tax_dependent_type_id" />
+          </Key>
+          <Property Name="tax_dependent_type_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="30" />
+          <Property Name="description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="WithHoldingTaxRate">
+          <Key>
+            <PropertyRef Name="wth_rate_id" />
+          </Key>
+          <Property Name="wth_rate_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="salary_type_id" Type="int" />
+          <Property Name="tax_dependent_type_id" Type="int" />
+          <Property Name="exemption" Type="decimal" Scale="2" />
+          <Property Name="percent_over" Type="decimal" Scale="2" />
+          <Property Name="flooring" Type="decimal" Scale="2" />
+          <Property Name="ceiling" Type="decimal" Scale="2" />
+        </EntityType>
+        <Association Name="FK__WithHoldi__salar__145C0A3F">
+          <End Role="SalaryType" Type="PH_DEDUCTIONSModel.Store.SalaryType" Multiplicity="0..1" />
+          <End Role="WithHoldingTaxRate" Type="PH_DEDUCTIONSModel.Store.WithHoldingTaxRate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SalaryType">
+              <PropertyRef Name="salary_type_id" />
+            </Principal>
+            <Dependent Role="WithHoldingTaxRate">
+              <PropertyRef Name="salary_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__WithHoldi__tax_d__15502E78">
+          <End Role="TaxDependentType" Type="PH_DEDUCTIONSModel.Store.TaxDependentType" Multiplicity="0..1" />
+          <End Role="WithHoldingTaxRate" Type="PH_DEDUCTIONSModel.Store.WithHoldingTaxRate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaxDependentType">
+              <PropertyRef Name="tax_dependent_type_id" />
+            </Principal>
+            <Dependent Role="WithHoldingTaxRate">
+              <PropertyRef Name="tax_dependent_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PH_DEDUCTIONSModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="PH_DEDUCTIONSEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="PagibigRates" EntityType="PH_DEDUCTIONSModel.PagibigRate" />
+          <EntitySet Name="PhilHealthRates" EntityType="PH_DEDUCTIONSModel.PhilHealthRate" />
+          <EntitySet Name="SalaryTypes" EntityType="PH_DEDUCTIONSModel.SalaryType" />
+          <EntitySet Name="SocialSecurityServiceRates" EntityType="PH_DEDUCTIONSModel.SocialSecurityServiceRate" />
+          <EntitySet Name="TaxDependentTypes" EntityType="PH_DEDUCTIONSModel.TaxDependentType" />
+          <EntitySet Name="WithHoldingTaxRates" EntityType="PH_DEDUCTIONSModel.WithHoldingTaxRate" />
+          <AssociationSet Name="FK__WithHoldi__salar__145C0A3F" Association="PH_DEDUCTIONSModel.FK__WithHoldi__salar__145C0A3F">
+            <End Role="SalaryType" EntitySet="SalaryTypes" />
+            <End Role="WithHoldingTaxRate" EntitySet="WithHoldingTaxRates" />
+          </AssociationSet>
+          <AssociationSet Name="FK__WithHoldi__tax_d__15502E78" Association="PH_DEDUCTIONSModel.FK__WithHoldi__tax_d__15502E78">
+            <End Role="TaxDependentType" EntitySet="TaxDependentTypes" />
+            <End Role="WithHoldingTaxRate" EntitySet="WithHoldingTaxRates" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="PagibigRate">
+          <Key>
+            <PropertyRef Name="pagibig_rate_id" />
+          </Key>
+          <Property Name="pagibig_rate_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="salary_ceiling" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="salary_flooring" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="employer_contribution" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="employee_contribution" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="PhilHealthRate">
+          <Key>
+            <PropertyRef Name="philhealth_rate_id" />
+          </Key>
+          <Property Name="philhealth_rate_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="salary_flooring" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="salary_ceiling" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="employee_contribution" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="employer_contribution" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="SalaryType">
+          <Key>
+            <PropertyRef Name="salary_type_id" />
+          </Key>
+          <Property Name="salary_type_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="multiplier30" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <NavigationProperty Name="WithHoldingTaxRates" Relationship="PH_DEDUCTIONSModel.FK__WithHoldi__salar__145C0A3F" FromRole="SalaryType" ToRole="WithHoldingTaxRate" />
+        </EntityType>
+        <EntityType Name="SocialSecurityServiceRate">
+          <Key>
+            <PropertyRef Name="sss_rate_id" />
+          </Key>
+          <Property Name="sss_rate_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="salary_flooring" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="salary_ceiling" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="employee_contribution" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="employer_contribution" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="total_contribution" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="TaxDependentType">
+          <Key>
+            <PropertyRef Name="tax_dependent_type_id" />
+          </Key>
+          <Property Name="tax_dependent_type_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="WithHoldingTaxRates" Relationship="PH_DEDUCTIONSModel.FK__WithHoldi__tax_d__15502E78" FromRole="TaxDependentType" ToRole="WithHoldingTaxRate" />
+        </EntityType>
+        <EntityType Name="WithHoldingTaxRate">
+          <Key>
+            <PropertyRef Name="wth_rate_id" />
+          </Key>
+          <Property Name="wth_rate_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="salary_type_id" Type="Int32" />
+          <Property Name="tax_dependent_type_id" Type="Int32" />
+          <Property Name="exemption" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="percent_over" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="flooring" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ceiling" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="SalaryType" Relationship="PH_DEDUCTIONSModel.FK__WithHoldi__salar__145C0A3F" FromRole="WithHoldingTaxRate" ToRole="SalaryType" />
+          <NavigationProperty Name="TaxDependentType" Relationship="PH_DEDUCTIONSModel.FK__WithHoldi__tax_d__15502E78" FromRole="WithHoldingTaxRate" ToRole="TaxDependentType" />
+        </EntityType>
+        <Association Name="FK__WithHoldi__salar__145C0A3F">
+          <End Role="SalaryType" Type="PH_DEDUCTIONSModel.SalaryType" Multiplicity="0..1" />
+          <End Role="WithHoldingTaxRate" Type="PH_DEDUCTIONSModel.WithHoldingTaxRate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SalaryType">
+              <PropertyRef Name="salary_type_id" />
+            </Principal>
+            <Dependent Role="WithHoldingTaxRate">
+              <PropertyRef Name="salary_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__WithHoldi__tax_d__15502E78">
+          <End Role="TaxDependentType" Type="PH_DEDUCTIONSModel.TaxDependentType" Multiplicity="0..1" />
+          <End Role="WithHoldingTaxRate" Type="PH_DEDUCTIONSModel.WithHoldingTaxRate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaxDependentType">
+              <PropertyRef Name="tax_dependent_type_id" />
+            </Principal>
+            <Dependent Role="WithHoldingTaxRate">
+              <PropertyRef Name="tax_dependent_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PH_DEDUCTIONSModelStoreContainer" CdmEntityContainer="PH_DEDUCTIONSEntities">
+          <EntitySetMapping Name="PagibigRates">
+            <EntityTypeMapping TypeName="PH_DEDUCTIONSModel.PagibigRate">
+              <MappingFragment StoreEntitySet="PagibigRate">
+                <ScalarProperty Name="pagibig_rate_id" ColumnName="pagibig_rate_id" />
+                <ScalarProperty Name="salary_ceiling" ColumnName="salary_ceiling" />
+                <ScalarProperty Name="salary_flooring" ColumnName="salary_flooring" />
+                <ScalarProperty Name="employer_contribution" ColumnName="employer_contribution" />
+                <ScalarProperty Name="employee_contribution" ColumnName="employee_contribution" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PhilHealthRates">
+            <EntityTypeMapping TypeName="PH_DEDUCTIONSModel.PhilHealthRate">
+              <MappingFragment StoreEntitySet="PhilHealthRate">
+                <ScalarProperty Name="philhealth_rate_id" ColumnName="philhealth_rate_id" />
+                <ScalarProperty Name="salary_flooring" ColumnName="salary_flooring" />
+                <ScalarProperty Name="salary_ceiling" ColumnName="salary_ceiling" />
+                <ScalarProperty Name="employee_contribution" ColumnName="employee_contribution" />
+                <ScalarProperty Name="employer_contribution" ColumnName="employer_contribution" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalaryTypes">
+            <EntityTypeMapping TypeName="PH_DEDUCTIONSModel.SalaryType">
+              <MappingFragment StoreEntitySet="SalaryType">
+                <ScalarProperty Name="salary_type_id" ColumnName="salary_type_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="multiplier30" ColumnName="multiplier30" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SocialSecurityServiceRates">
+            <EntityTypeMapping TypeName="PH_DEDUCTIONSModel.SocialSecurityServiceRate">
+              <MappingFragment StoreEntitySet="SocialSecurityServiceRate">
+                <ScalarProperty Name="sss_rate_id" ColumnName="sss_rate_id" />
+                <ScalarProperty Name="salary_flooring" ColumnName="salary_flooring" />
+                <ScalarProperty Name="salary_ceiling" ColumnName="salary_ceiling" />
+                <ScalarProperty Name="employee_contribution" ColumnName="employee_contribution" />
+                <ScalarProperty Name="employer_contribution" ColumnName="employer_contribution" />
+                <ScalarProperty Name="total_contribution" ColumnName="total_contribution" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TaxDependentTypes">
+            <EntityTypeMapping TypeName="PH_DEDUCTIONSModel.TaxDependentType">
+              <MappingFragment StoreEntitySet="TaxDependentType">
+                <ScalarProperty Name="tax_dependent_type_id" ColumnName="tax_dependent_type_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WithHoldingTaxRates">
+            <EntityTypeMapping TypeName="PH_DEDUCTIONSModel.WithHoldingTaxRate">
+              <MappingFragment StoreEntitySet="WithHoldingTaxRate">
+                <ScalarProperty Name="wth_rate_id" ColumnName="wth_rate_id" />
+                <ScalarProperty Name="salary_type_id" ColumnName="salary_type_id" />
+                <ScalarProperty Name="tax_dependent_type_id" ColumnName="tax_dependent_type_id" />
+                <ScalarProperty Name="exemption" ColumnName="exemption" />
+                <ScalarProperty Name="percent_over" ColumnName="percent_over" />
+                <ScalarProperty Name="flooring" ColumnName="flooring" />
+                <ScalarProperty Name="ceiling" ColumnName="ceiling" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

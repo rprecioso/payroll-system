@@ -1,0 +1,1411 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ExtermiconDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="ExtermiconDBModelStoreContainer">
+          <EntitySet Name="Deduction" EntityType="ExtermiconDBModel.Store.Deduction" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DeductionType" EntityType="ExtermiconDBModel.Store.DeductionType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Earning" EntityType="ExtermiconDBModel.Store.Earning" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EarningType" EntityType="ExtermiconDBModel.Store.EarningType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PayPeriod" EntityType="ExtermiconDBModel.Store.PayPeriod" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PayPeriodType" EntityType="ExtermiconDBModel.Store.PayPeriodType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Payslip" EntityType="ExtermiconDBModel.Store.Payslip" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblEmployee" EntityType="ExtermiconDBModel.Store.tblEmployee" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblHoliday" EntityType="ExtermiconDBModel.Store.tblHoliday" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblLogin" EntityType="ExtermiconDBModel.Store.tblLogin" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblRole" EntityType="ExtermiconDBModel.Store.tblRole" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblSchedule" EntityType="ExtermiconDBModel.Store.tblSchedule" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblUser" EntityType="ExtermiconDBModel.Store.tblUser" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="vw_deduction_no_zero" EntityType="ExtermiconDBModel.Store.vw_deduction_no_zero" store:Type="Views" store:Schema="dbo" store:Name="vw_deduction_no_zero">
+            <DefiningQuery>SELECT 
+      [vw_deduction_no_zero].[name] AS [name], 
+      [vw_deduction_no_zero].[amount] AS [amount], 
+      [vw_deduction_no_zero].[payslip_id] AS [payslip_id], 
+      [vw_deduction_no_zero].[deduction_type_id] AS [deduction_type_id], 
+      [vw_deduction_no_zero].[deduction_id] AS [deduction_id]
+      FROM [dbo].[vw_deduction_no_zero] AS [vw_deduction_no_zero]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_earning_no_zero" EntityType="ExtermiconDBModel.Store.vw_earning_no_zero" store:Type="Views" store:Schema="dbo" store:Name="vw_earning_no_zero">
+            <DefiningQuery>SELECT 
+      [vw_earning_no_zero].[name] AS [name], 
+      [vw_earning_no_zero].[earning_type_id] AS [earning_type_id], 
+      [vw_earning_no_zero].[amount] AS [amount], 
+      [vw_earning_no_zero].[payslip_id] AS [payslip_id], 
+      [vw_earning_no_zero].[earning_id] AS [earning_id]
+      FROM [dbo].[vw_earning_no_zero] AS [vw_earning_no_zero]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_emp_user" EntityType="ExtermiconDBModel.Store.vw_emp_user" store:Type="Views" store:Schema="dbo" store:Name="vw_emp_user">
+            <DefiningQuery>SELECT 
+      [vw_emp_user].[emp_id] AS [emp_id], 
+      [vw_emp_user].[user_id] AS [user_id], 
+      [vw_emp_user].[first_name] AS [first_name], 
+      [vw_emp_user].[middle_name] AS [middle_name], 
+      [vw_emp_user].[last_name] AS [last_name], 
+      [vw_emp_user].[username] AS [username], 
+      [vw_emp_user].[password] AS [password], 
+      [vw_emp_user].[passcode] AS [passcode], 
+      [vw_emp_user].[sched_id] AS [sched_id], 
+      [vw_emp_user].[role_id] AS [role_id], 
+      [vw_emp_user].[schedule] AS [schedule]
+      FROM [dbo].[vw_emp_user] AS [vw_emp_user]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_emp_with_no_account" EntityType="ExtermiconDBModel.Store.vw_emp_with_no_account" store:Type="Views" store:Schema="dbo" store:Name="vw_emp_with_no_account">
+            <DefiningQuery>SELECT 
+      [vw_emp_with_no_account].[name] AS [name], 
+      [vw_emp_with_no_account].[user_id] AS [user_id], 
+      [vw_emp_with_no_account].[emp_id] AS [emp_id]
+      FROM [dbo].[vw_emp_with_no_account] AS [vw_emp_with_no_account]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_employee_list" EntityType="ExtermiconDBModel.Store.vw_employee_list" store:Type="Views" store:Schema="dbo" store:Name="vw_employee_list">
+            <DefiningQuery>SELECT 
+      [vw_employee_list].[name] AS [name], 
+      [vw_employee_list].[emp_id] AS [emp_id]
+      FROM [dbo].[vw_employee_list] AS [vw_employee_list]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_log_in_history" EntityType="ExtermiconDBModel.Store.vw_log_in_history" store:Type="Views" store:Schema="dbo" store:Name="vw_log_in_history">
+            <DefiningQuery>SELECT 
+      [vw_log_in_history].[log_id] AS [log_id], 
+      [vw_log_in_history].[in_time] AS [in_time], 
+      [vw_log_in_history].[out_time] AS [out_time], 
+      [vw_log_in_history].[user_id] AS [user_id], 
+      [vw_log_in_history].[sched_id] AS [sched_id], 
+      [vw_log_in_history].[date] AS [date], 
+      [vw_log_in_history].[dtstamp] AS [dtstamp], 
+      [vw_log_in_history].[note] AS [note], 
+      [vw_log_in_history].[schedule] AS [schedule], 
+      [vw_log_in_history].[hours_spent] AS [hours_spent], 
+      [vw_log_in_history].[hours_over] AS [hours_over], 
+      [vw_log_in_history].[name] AS [name], 
+      [vw_log_in_history].[log] AS [log], 
+      [vw_log_in_history].[emp_id] AS [emp_id]
+      FROM [dbo].[vw_log_in_history] AS [vw_log_in_history]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_payslip_summary" EntityType="ExtermiconDBModel.Store.vw_payslip_summary" store:Type="Views" store:Schema="dbo" store:Name="vw_payslip_summary">
+            <DefiningQuery>SELECT 
+      [vw_payslip_summary].[payslip_id] AS [payslip_id], 
+      [vw_payslip_summary].[issue_date] AS [issue_date], 
+      [vw_payslip_summary].[COLA] AS [COLA], 
+      [vw_payslip_summary].[basic_rate] AS [basic_rate], 
+      [vw_payslip_summary].[period_start] AS [period_start], 
+      [vw_payslip_summary].[period_end] AS [period_end], 
+      [vw_payslip_summary].[emp_id] AS [emp_id], 
+      [vw_payslip_summary].[dayspresent] AS [dayspresent], 
+      [vw_payslip_summary].[amount] AS [amount], 
+      [vw_payslip_summary].[Expr1] AS [Expr1], 
+      [vw_payslip_summary].[name] AS [name]
+      FROM [dbo].[vw_payslip_summary] AS [vw_payslip_summary]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_schedule_list" EntityType="ExtermiconDBModel.Store.vw_schedule_list" store:Type="Views" store:Schema="dbo" store:Name="vw_schedule_list">
+            <DefiningQuery>SELECT 
+      [vw_schedule_list].[sched_id] AS [sched_id], 
+      [vw_schedule_list].[schedule] AS [schedule]
+      FROM [dbo].[vw_schedule_list] AS [vw_schedule_list]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_today_logs" EntityType="ExtermiconDBModel.Store.vw_today_logs" store:Type="Views" store:Schema="dbo" store:Name="vw_today_logs">
+            <DefiningQuery>SELECT 
+      [vw_today_logs].[in_time] AS [in_time], 
+      [vw_today_logs].[out_time] AS [out_time], 
+      [vw_today_logs].[first_name] AS [first_name], 
+      [vw_today_logs].[last_name] AS [last_name], 
+      [vw_today_logs].[user_id] AS [user_id], 
+      [vw_today_logs].[log_id] AS [log_id], 
+      [vw_today_logs].[emp_id] AS [emp_id]
+      FROM [dbo].[vw_today_logs] AS [vw_today_logs]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_user_schedule" EntityType="ExtermiconDBModel.Store.vw_user_schedule" store:Type="Views" store:Schema="dbo" store:Name="vw_user_schedule">
+            <DefiningQuery>SELECT 
+      [vw_user_schedule].[name] AS [name], 
+      [vw_user_schedule].[sched_id] AS [sched_id], 
+      [vw_user_schedule].[user_id] AS [user_id], 
+      [vw_user_schedule].[emp_id] AS [emp_id], 
+      [vw_user_schedule].[in_time] AS [in_time], 
+      [vw_user_schedule].[out_time] AS [out_time]
+      FROM [dbo].[vw_user_schedule] AS [vw_user_schedule]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__Deduction__deduc__45F365D3" Association="ExtermiconDBModel.Store.FK__Deduction__deduc__45F365D3">
+            <End Role="DeductionType" EntitySet="DeductionType" />
+            <End Role="Deduction" EntitySet="Deduction" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Deduction__paysl__46E78A0C" Association="ExtermiconDBModel.Store.FK__Deduction__paysl__46E78A0C">
+            <End Role="Payslip" EntitySet="Payslip" />
+            <End Role="Deduction" EntitySet="Deduction" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Earning__earning__52593CB8" Association="ExtermiconDBModel.Store.FK__Earning__earning__52593CB8">
+            <End Role="EarningType" EntitySet="EarningType" />
+            <End Role="Earning" EntitySet="Earning" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Earning__payslip__534D60F1" Association="ExtermiconDBModel.Store.FK__Earning__payslip__534D60F1">
+            <End Role="Payslip" EntitySet="Payslip" />
+            <End Role="Earning" EntitySet="Earning" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PayPeriod__pay_p__35BCFE0A" Association="ExtermiconDBModel.Store.FK__PayPeriod__pay_p__35BCFE0A">
+            <End Role="PayPeriodType" EntitySet="PayPeriodType" />
+            <End Role="PayPeriod" EntitySet="PayPeriod" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Payslip__emp_id__571DF1D5" Association="ExtermiconDBModel.Store.FK__Payslip__emp_id__571DF1D5">
+            <End Role="tblEmployee" EntitySet="tblEmployee" />
+            <End Role="Payslip" EntitySet="Payslip" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblUser__emp_id__1273C1CD" Association="ExtermiconDBModel.Store.FK__tblUser__emp_id__1273C1CD">
+            <End Role="tblEmployee" EntitySet="tblEmployee" />
+            <End Role="tblUser" EntitySet="tblUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblUser__role_id__5629CD9C" Association="ExtermiconDBModel.Store.FK__tblUser__role_id__5629CD9C">
+            <End Role="tblRole" EntitySet="tblRole" />
+            <End Role="tblUser" EntitySet="tblUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblLogin_tblSchedule" Association="ExtermiconDBModel.Store.FK_tblLogin_tblSchedule">
+            <End Role="tblSchedule" EntitySet="tblSchedule" />
+            <End Role="tblLogin" EntitySet="tblLogin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblLogin_tblUser" Association="ExtermiconDBModel.Store.FK_tblLogin_tblUser">
+            <End Role="tblUser" EntitySet="tblUser" />
+            <End Role="tblLogin" EntitySet="tblLogin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUser_tblSchedule" Association="ExtermiconDBModel.Store.FK_tblUser_tblSchedule">
+            <End Role="tblSchedule" EntitySet="tblSchedule" />
+            <End Role="tblUser" EntitySet="tblUser" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Deduction">
+          <Key>
+            <PropertyRef Name="deduction_id" />
+          </Key>
+          <Property Name="deduction_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="quantity" Type="int" Nullable="false" />
+          <Property Name="rate" Type="decimal" Nullable="false" Scale="2" />
+          <Property Name="deduction_type_id" Type="int" Nullable="false" />
+          <Property Name="payslip_id" Type="int" Nullable="false" />
+          <Property Name="taxable" Type="bit" />
+        </EntityType>
+        <EntityType Name="DeductionType">
+          <Key>
+            <PropertyRef Name="deduction_type_id" />
+          </Key>
+          <Property Name="deduction_type_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Earning">
+          <Key>
+            <PropertyRef Name="earning_id" />
+          </Key>
+          <Property Name="earning_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="quantity" Type="int" Nullable="false" />
+          <Property Name="rate" Type="decimal" Nullable="false" Scale="2" />
+          <Property Name="earning_type_id" Type="int" Nullable="false" />
+          <Property Name="payslip_id" Type="int" Nullable="false" />
+          <Property Name="taxable" Type="bit" />
+        </EntityType>
+        <EntityType Name="EarningType">
+          <Key>
+            <PropertyRef Name="earning_type_id" />
+          </Key>
+          <Property Name="earning_type_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="PayPeriod">
+          <Key>
+            <PropertyRef Name="pay_period_id" />
+          </Key>
+          <Property Name="pay_period_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="startdate" Type="datetime" Nullable="false" />
+          <Property Name="enddate" Type="datetime" Nullable="false" />
+          <Property Name="pay_period_type_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PayPeriodType">
+          <Key>
+            <PropertyRef Name="pay_period_type_id" />
+          </Key>
+          <Property Name="pay_period_type_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Payslip">
+          <Key>
+            <PropertyRef Name="payslip_id" />
+          </Key>
+          <Property Name="payslip_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="issue_date" Type="datetime" Nullable="false" />
+          <Property Name="COLA" Type="decimal" Nullable="false" Scale="2" />
+          <Property Name="basic_rate" Type="decimal" Nullable="false" Scale="2" />
+          <Property Name="period_start" Type="datetime" />
+          <Property Name="period_end" Type="datetime" />
+          <Property Name="emp_id" Type="int" />
+          <Property Name="dayspresent" Type="decimal" Scale="2" />
+        </EntityType>
+        <EntityType Name="tblEmployee">
+          <Key>
+            <PropertyRef Name="emp_id" />
+          </Key>
+          <Property Name="emp_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="employee_number" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="first_name" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="middle_name" Type="varchar" MaxLength="30" />
+          <Property Name="last_name" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="basic_salary" Type="decimal" Nullable="false" Scale="2" />
+          <Property Name="designation" Type="nvarchar" MaxLength="50" />
+          <Property Name="status" Type="nvarchar" MaxLength="50" />
+          <Property Name="cola" Type="decimal" Nullable="false" Scale="2" />
+          <Property Name="tax_dependent_type_id" Type="int" />
+        </EntityType>
+        <EntityType Name="tblHoliday">
+          <Key>
+            <PropertyRef Name="holi_id" />
+          </Key>
+          <Property Name="holi_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="holiday" Type="varchar" MaxLength="100" />
+          <Property Name="description" Type="varchar" MaxLength="1000" />
+          <Property Name="start_date" Type="datetime" />
+          <Property Name="end_date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblLogin">
+          <Key>
+            <PropertyRef Name="log_id" />
+          </Key>
+          <Property Name="log_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="in_time" Type="datetime" />
+          <Property Name="out_time" Type="datetime" />
+          <Property Name="user_id" Type="int" />
+          <Property Name="sched_id" Type="int" />
+          <Property Name="date" Type="datetime" />
+          <Property Name="note" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblRole">
+          <Key>
+            <PropertyRef Name="role_id" />
+          </Key>
+          <Property Name="role_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="role" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblSchedule">
+          <Key>
+            <PropertyRef Name="sched_id" />
+          </Key>
+          <Property Name="sched_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="in_time" Type="datetime" />
+          <Property Name="out_time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblUser">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="password" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="emp_id" Type="int" Nullable="false" />
+          <Property Name="passcode" Type="varchar" MaxLength="10" />
+          <Property Name="sched_id" Type="int" />
+          <Property Name="role_id" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'ExtermiconDB.dbo.vw_deduction_no_zero' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vw_deduction_no_zero">
+          <Key>
+            <PropertyRef Name="payslip_id" />
+            <PropertyRef Name="deduction_type_id" />
+            <PropertyRef Name="deduction_id" />
+          </Key>
+          <Property Name="name" Type="varchar" MaxLength="100" />
+          <Property Name="amount" Type="decimal" Precision="29" Scale="2" />
+          <Property Name="payslip_id" Type="int" Nullable="false" />
+          <Property Name="deduction_type_id" Type="int" Nullable="false" />
+          <Property Name="deduction_id" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'ExtermiconDB.dbo.vw_earning_no_zero' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vw_earning_no_zero">
+          <Key>
+            <PropertyRef Name="earning_type_id" />
+            <PropertyRef Name="payslip_id" />
+            <PropertyRef Name="earning_id" />
+          </Key>
+          <Property Name="name" Type="varchar" MaxLength="100" />
+          <Property Name="earning_type_id" Type="int" Nullable="false" />
+          <Property Name="amount" Type="decimal" Precision="29" Scale="2" />
+          <Property Name="payslip_id" Type="int" Nullable="false" />
+          <Property Name="earning_id" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'ExtermiconDB.dbo.vw_emp_user' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vw_emp_user">
+          <Key>
+            <PropertyRef Name="emp_id" />
+            <PropertyRef Name="user_id" />
+            <PropertyRef Name="first_name" />
+            <PropertyRef Name="last_name" />
+            <PropertyRef Name="username" />
+            <PropertyRef Name="password" />
+            <PropertyRef Name="sched_id" />
+            <PropertyRef Name="role_id" />
+          </Key>
+          <Property Name="emp_id" Type="int" Nullable="false" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="first_name" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="middle_name" Type="varchar" MaxLength="30" />
+          <Property Name="last_name" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="username" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="password" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="passcode" Type="varchar" MaxLength="10" />
+          <Property Name="sched_id" Type="int" Nullable="false" />
+          <Property Name="role_id" Type="int" Nullable="false" />
+          <Property Name="schedule" Type="varchar" MaxLength="17" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'ExtermiconDB.dbo.vw_emp_with_no_account' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vw_emp_with_no_account">
+          <Key>
+            <PropertyRef Name="emp_id" />
+          </Key>
+          <Property Name="name" Type="varchar" MaxLength="61" />
+          <Property Name="user_id" Type="int" />
+          <Property Name="emp_id" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'ExtermiconDB.dbo.vw_employee_list' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vw_employee_list">
+          <Key>
+            <PropertyRef Name="name" />
+            <PropertyRef Name="emp_id" />
+          </Key>
+          <Property Name="name" Type="varchar" Nullable="false" MaxLength="61" />
+          <Property Name="emp_id" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'ExtermiconDB.dbo.vw_log_in_history' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vw_log_in_history">
+          <Key>
+            <PropertyRef Name="log_id" />
+          </Key>
+          <Property Name="log_id" Type="int" Nullable="false" />
+          <Property Name="in_time" Type="datetime" />
+          <Property Name="out_time" Type="datetime" />
+          <Property Name="user_id" Type="int" />
+          <Property Name="sched_id" Type="int" />
+          <Property Name="date" Type="varchar" MaxLength="30" />
+          <Property Name="dtstamp" Type="datetime" />
+          <Property Name="note" Type="varchar" MaxLength="50" />
+          <Property Name="schedule" Type="varchar" MaxLength="63" />
+          <Property Name="hours_spent" Type="float" />
+          <Property Name="hours_over" Type="float" />
+          <Property Name="name" Type="varchar" MaxLength="61" />
+          <Property Name="log" Type="varchar" MaxLength="30" />
+          <Property Name="emp_id" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'ExtermiconDB.dbo.vw_payslip_summary' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vw_payslip_summary">
+          <Key>
+            <PropertyRef Name="payslip_id" />
+            <PropertyRef Name="issue_date" />
+            <PropertyRef Name="COLA" />
+            <PropertyRef Name="basic_rate" />
+          </Key>
+          <Property Name="payslip_id" Type="int" Nullable="false" />
+          <Property Name="issue_date" Type="datetime" Nullable="false" />
+          <Property Name="COLA" Type="decimal" Nullable="false" Scale="2" />
+          <Property Name="basic_rate" Type="decimal" Nullable="false" Scale="2" />
+          <Property Name="period_start" Type="datetime" />
+          <Property Name="period_end" Type="datetime" />
+          <Property Name="emp_id" Type="int" />
+          <Property Name="dayspresent" Type="decimal" Precision="38" Scale="6" />
+          <Property Name="amount" Type="decimal" Precision="38" Scale="2" />
+          <Property Name="Expr1" Type="int" />
+          <Property Name="name" Type="varchar" MaxLength="61" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'ExtermiconDB.dbo.vw_schedule_list' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vw_schedule_list">
+          <Key>
+            <PropertyRef Name="sched_id" />
+          </Key>
+          <Property Name="sched_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="schedule" Type="varchar" MaxLength="17" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'ExtermiconDB.dbo.vw_today_logs' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vw_today_logs">
+          <Key>
+            <PropertyRef Name="first_name" />
+            <PropertyRef Name="last_name" />
+            <PropertyRef Name="user_id" />
+            <PropertyRef Name="log_id" />
+            <PropertyRef Name="emp_id" />
+          </Key>
+          <Property Name="in_time" Type="datetime" />
+          <Property Name="out_time" Type="datetime" />
+          <Property Name="first_name" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="last_name" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="log_id" Type="int" Nullable="false" />
+          <Property Name="emp_id" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'ExtermiconDB.dbo.vw_user_schedule' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vw_user_schedule">
+          <Key>
+            <PropertyRef Name="sched_id" />
+            <PropertyRef Name="user_id" />
+            <PropertyRef Name="emp_id" />
+          </Key>
+          <Property Name="name" Type="varchar" MaxLength="61" />
+          <Property Name="sched_id" Type="int" Nullable="false" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="emp_id" Type="int" Nullable="false" />
+          <Property Name="in_time" Type="datetime" />
+          <Property Name="out_time" Type="datetime" />
+        </EntityType>
+        <Association Name="FK__Deduction__deduc__45F365D3">
+          <End Role="DeductionType" Type="ExtermiconDBModel.Store.DeductionType" Multiplicity="1" />
+          <End Role="Deduction" Type="ExtermiconDBModel.Store.Deduction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeductionType">
+              <PropertyRef Name="deduction_type_id" />
+            </Principal>
+            <Dependent Role="Deduction">
+              <PropertyRef Name="deduction_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Deduction__paysl__46E78A0C">
+          <End Role="Payslip" Type="ExtermiconDBModel.Store.Payslip" Multiplicity="1" />
+          <End Role="Deduction" Type="ExtermiconDBModel.Store.Deduction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Payslip">
+              <PropertyRef Name="payslip_id" />
+            </Principal>
+            <Dependent Role="Deduction">
+              <PropertyRef Name="payslip_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Earning__earning__52593CB8">
+          <End Role="EarningType" Type="ExtermiconDBModel.Store.EarningType" Multiplicity="1" />
+          <End Role="Earning" Type="ExtermiconDBModel.Store.Earning" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EarningType">
+              <PropertyRef Name="earning_type_id" />
+            </Principal>
+            <Dependent Role="Earning">
+              <PropertyRef Name="earning_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Earning__payslip__534D60F1">
+          <End Role="Payslip" Type="ExtermiconDBModel.Store.Payslip" Multiplicity="1" />
+          <End Role="Earning" Type="ExtermiconDBModel.Store.Earning" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Payslip">
+              <PropertyRef Name="payslip_id" />
+            </Principal>
+            <Dependent Role="Earning">
+              <PropertyRef Name="payslip_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PayPeriod__pay_p__35BCFE0A">
+          <End Role="PayPeriodType" Type="ExtermiconDBModel.Store.PayPeriodType" Multiplicity="1" />
+          <End Role="PayPeriod" Type="ExtermiconDBModel.Store.PayPeriod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PayPeriodType">
+              <PropertyRef Name="pay_period_type_id" />
+            </Principal>
+            <Dependent Role="PayPeriod">
+              <PropertyRef Name="pay_period_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Payslip__emp_id__571DF1D5">
+          <End Role="tblEmployee" Type="ExtermiconDBModel.Store.tblEmployee" Multiplicity="0..1" />
+          <End Role="Payslip" Type="ExtermiconDBModel.Store.Payslip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEmployee">
+              <PropertyRef Name="emp_id" />
+            </Principal>
+            <Dependent Role="Payslip">
+              <PropertyRef Name="emp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblUser__emp_id__1273C1CD">
+          <End Role="tblEmployee" Type="ExtermiconDBModel.Store.tblEmployee" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblUser" Type="ExtermiconDBModel.Store.tblUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEmployee">
+              <PropertyRef Name="emp_id" />
+            </Principal>
+            <Dependent Role="tblUser">
+              <PropertyRef Name="emp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblUser__role_id__5629CD9C">
+          <End Role="tblRole" Type="ExtermiconDBModel.Store.tblRole" Multiplicity="0..1" />
+          <End Role="tblUser" Type="ExtermiconDBModel.Store.tblUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblRole">
+              <PropertyRef Name="role_id" />
+            </Principal>
+            <Dependent Role="tblUser">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblLogin_tblSchedule">
+          <End Role="tblSchedule" Type="ExtermiconDBModel.Store.tblSchedule" Multiplicity="0..1" />
+          <End Role="tblLogin" Type="ExtermiconDBModel.Store.tblLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSchedule">
+              <PropertyRef Name="sched_id" />
+            </Principal>
+            <Dependent Role="tblLogin">
+              <PropertyRef Name="sched_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblLogin_tblUser">
+          <End Role="tblUser" Type="ExtermiconDBModel.Store.tblUser" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblLogin" Type="ExtermiconDBModel.Store.tblLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUser">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="tblLogin">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUser_tblSchedule">
+          <End Role="tblSchedule" Type="ExtermiconDBModel.Store.tblSchedule" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblUser" Type="ExtermiconDBModel.Store.tblUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSchedule">
+              <PropertyRef Name="sched_id" />
+            </Principal>
+            <Dependent Role="tblUser">
+              <PropertyRef Name="sched_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_get_hours_over" ReturnType="float" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="time_out" Type="datetime" Mode="In" />
+          <Parameter Name="p_date" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="fn_get_hours_spent" ReturnType="float" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="time_out" Type="datetime" Mode="In" />
+          <Parameter Name="time_in" Type="datetime" Mode="In" />
+          <Parameter Name="p_date" Type="datetime" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ExtermiconDBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ExtermiconDBEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Deductions" EntityType="ExtermiconDBModel.Deduction" />
+          <EntitySet Name="DeductionTypes" EntityType="ExtermiconDBModel.DeductionType" />
+          <EntitySet Name="Earnings" EntityType="ExtermiconDBModel.Earning" />
+          <EntitySet Name="EarningTypes" EntityType="ExtermiconDBModel.EarningType" />
+          <EntitySet Name="PayPeriods" EntityType="ExtermiconDBModel.PayPeriod" />
+          <EntitySet Name="PayPeriodTypes" EntityType="ExtermiconDBModel.PayPeriodType" />
+          <EntitySet Name="Payslips" EntityType="ExtermiconDBModel.Payslip" />
+          <EntitySet Name="tblEmployees" EntityType="ExtermiconDBModel.tblEmployee" />
+          <EntitySet Name="tblHolidays" EntityType="ExtermiconDBModel.tblHoliday" />
+          <EntitySet Name="tblLogins" EntityType="ExtermiconDBModel.tblLogin" />
+          <EntitySet Name="tblRoles" EntityType="ExtermiconDBModel.tblRole" />
+          <EntitySet Name="tblSchedules" EntityType="ExtermiconDBModel.tblSchedule" />
+          <EntitySet Name="tblUsers" EntityType="ExtermiconDBModel.tblUser" />
+          <EntitySet Name="vw_deduction_no_zero" EntityType="ExtermiconDBModel.vw_deduction_no_zero" />
+          <EntitySet Name="vw_earning_no_zero" EntityType="ExtermiconDBModel.vw_earning_no_zero" />
+          <EntitySet Name="vw_emp_user" EntityType="ExtermiconDBModel.vw_emp_user" />
+          <EntitySet Name="vw_emp_with_no_account" EntityType="ExtermiconDBModel.vw_emp_with_no_account" />
+          <EntitySet Name="vw_employee_list" EntityType="ExtermiconDBModel.vw_employee_list" />
+          <EntitySet Name="vw_log_in_history" EntityType="ExtermiconDBModel.vw_log_in_history" />
+          <EntitySet Name="vw_payslip_summary" EntityType="ExtermiconDBModel.vw_payslip_summary" />
+          <EntitySet Name="vw_schedule_list" EntityType="ExtermiconDBModel.vw_schedule_list" />
+          <EntitySet Name="vw_today_logs" EntityType="ExtermiconDBModel.vw_today_logs" />
+          <EntitySet Name="vw_user_schedule" EntityType="ExtermiconDBModel.vw_user_schedule" />
+          <AssociationSet Name="FK__Deduction__deduc__45F365D3" Association="ExtermiconDBModel.FK__Deduction__deduc__45F365D3">
+            <End Role="DeductionType" EntitySet="DeductionTypes" />
+            <End Role="Deduction" EntitySet="Deductions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Deduction__paysl__46E78A0C" Association="ExtermiconDBModel.FK__Deduction__paysl__46E78A0C">
+            <End Role="Payslip" EntitySet="Payslips" />
+            <End Role="Deduction" EntitySet="Deductions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Earning__earning__52593CB8" Association="ExtermiconDBModel.FK__Earning__earning__52593CB8">
+            <End Role="EarningType" EntitySet="EarningTypes" />
+            <End Role="Earning" EntitySet="Earnings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Earning__payslip__534D60F1" Association="ExtermiconDBModel.FK__Earning__payslip__534D60F1">
+            <End Role="Payslip" EntitySet="Payslips" />
+            <End Role="Earning" EntitySet="Earnings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PayPeriod__pay_p__35BCFE0A" Association="ExtermiconDBModel.FK__PayPeriod__pay_p__35BCFE0A">
+            <End Role="PayPeriodType" EntitySet="PayPeriodTypes" />
+            <End Role="PayPeriod" EntitySet="PayPeriods" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Payslip__emp_id__571DF1D5" Association="ExtermiconDBModel.FK__Payslip__emp_id__571DF1D5">
+            <End Role="tblEmployee" EntitySet="tblEmployees" />
+            <End Role="Payslip" EntitySet="Payslips" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblUser__emp_id__1273C1CD" Association="ExtermiconDBModel.FK__tblUser__emp_id__1273C1CD">
+            <End Role="tblEmployee" EntitySet="tblEmployees" />
+            <End Role="tblUser" EntitySet="tblUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblLogin_tblSchedule" Association="ExtermiconDBModel.FK_tblLogin_tblSchedule">
+            <End Role="tblSchedule" EntitySet="tblSchedules" />
+            <End Role="tblLogin" EntitySet="tblLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblLogin_tblUser" Association="ExtermiconDBModel.FK_tblLogin_tblUser">
+            <End Role="tblUser" EntitySet="tblUsers" />
+            <End Role="tblLogin" EntitySet="tblLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblUser__role_id__5629CD9C" Association="ExtermiconDBModel.FK__tblUser__role_id__5629CD9C">
+            <End Role="tblRole" EntitySet="tblRoles" />
+            <End Role="tblUser" EntitySet="tblUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUser_tblSchedule" Association="ExtermiconDBModel.FK_tblUser_tblSchedule">
+            <End Role="tblSchedule" EntitySet="tblSchedules" />
+            <End Role="tblUser" EntitySet="tblUsers" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Deduction">
+          <Key>
+            <PropertyRef Name="deduction_id" />
+          </Key>
+          <Property Type="Int32" Name="deduction_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="quantity" Nullable="false" />
+          <Property Type="Decimal" Name="rate" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Int32" Name="deduction_type_id" Nullable="false" />
+          <Property Type="Int32" Name="payslip_id" Nullable="false" />
+          <Property Type="Boolean" Name="taxable" />
+          <NavigationProperty Name="DeductionType" Relationship="ExtermiconDBModel.FK__Deduction__deduc__45F365D3" FromRole="Deduction" ToRole="DeductionType" />
+          <NavigationProperty Name="Payslip" Relationship="ExtermiconDBModel.FK__Deduction__paysl__46E78A0C" FromRole="Deduction" ToRole="Payslip" />
+        </EntityType>
+        <EntityType Name="DeductionType">
+          <Key>
+            <PropertyRef Name="deduction_type_id" />
+          </Key>
+          <Property Type="Int32" Name="deduction_type_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="name" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Deductions" Relationship="ExtermiconDBModel.FK__Deduction__deduc__45F365D3" FromRole="DeductionType" ToRole="Deduction" />
+        </EntityType>
+        <EntityType Name="Earning">
+          <Key>
+            <PropertyRef Name="earning_id" />
+          </Key>
+          <Property Type="Int32" Name="earning_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="quantity" Nullable="false" />
+          <Property Type="Decimal" Name="rate" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Int32" Name="earning_type_id" Nullable="false" />
+          <Property Type="Int32" Name="payslip_id" Nullable="false" />
+          <Property Type="Boolean" Name="taxable" />
+          <NavigationProperty Name="EarningType" Relationship="ExtermiconDBModel.FK__Earning__earning__52593CB8" FromRole="Earning" ToRole="EarningType" />
+          <NavigationProperty Name="Payslip" Relationship="ExtermiconDBModel.FK__Earning__payslip__534D60F1" FromRole="Earning" ToRole="Payslip" />
+        </EntityType>
+        <EntityType Name="EarningType">
+          <Key>
+            <PropertyRef Name="earning_type_id" />
+          </Key>
+          <Property Type="Int32" Name="earning_type_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="name" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Earnings" Relationship="ExtermiconDBModel.FK__Earning__earning__52593CB8" FromRole="EarningType" ToRole="Earning" />
+        </EntityType>
+        <EntityType Name="PayPeriod">
+          <Key>
+            <PropertyRef Name="pay_period_id" />
+          </Key>
+          <Property Type="Int32" Name="pay_period_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="startdate" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="enddate" Nullable="false" Precision="3" />
+          <Property Type="Int32" Name="pay_period_type_id" Nullable="false" />
+          <NavigationProperty Name="PayPeriodType" Relationship="ExtermiconDBModel.FK__PayPeriod__pay_p__35BCFE0A" FromRole="PayPeriod" ToRole="PayPeriodType" />
+        </EntityType>
+        <EntityType Name="PayPeriodType">
+          <Key>
+            <PropertyRef Name="pay_period_type_id" />
+          </Key>
+          <Property Type="Int32" Name="pay_period_type_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="name" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PayPeriods" Relationship="ExtermiconDBModel.FK__PayPeriod__pay_p__35BCFE0A" FromRole="PayPeriodType" ToRole="PayPeriod" />
+        </EntityType>
+        <EntityType Name="Payslip">
+          <Key>
+            <PropertyRef Name="payslip_id" />
+          </Key>
+          <Property Type="Int32" Name="payslip_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="issue_date" Nullable="false" Precision="3" />
+          <Property Type="Decimal" Name="COLA" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="basic_rate" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="DateTime" Name="period_start" Precision="3" />
+          <Property Type="DateTime" Name="period_end" Precision="3" />
+          <Property Type="Int32" Name="emp_id" />
+          <Property Type="Decimal" Name="dayspresent" Precision="18" Scale="2" />
+          <NavigationProperty Name="Deductions" Relationship="ExtermiconDBModel.FK__Deduction__paysl__46E78A0C" FromRole="Payslip" ToRole="Deduction" />
+          <NavigationProperty Name="Earnings" Relationship="ExtermiconDBModel.FK__Earning__payslip__534D60F1" FromRole="Payslip" ToRole="Earning" />
+          <NavigationProperty Name="tblEmployee" Relationship="ExtermiconDBModel.FK__Payslip__emp_id__571DF1D5" FromRole="Payslip" ToRole="tblEmployee" />
+        </EntityType>
+        <EntityType Name="tblEmployee">
+          <Key>
+            <PropertyRef Name="emp_id" />
+          </Key>
+          <Property Type="Int32" Name="emp_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="employee_number" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="first_name" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="middle_name" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="last_name" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="basic_salary" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="String" Name="designation" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="status" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="cola" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Int32" Name="tax_dependent_type_id" />
+          <NavigationProperty Name="Payslips" Relationship="ExtermiconDBModel.FK__Payslip__emp_id__571DF1D5" FromRole="tblEmployee" ToRole="Payslip" />
+          <NavigationProperty Name="tblUsers" Relationship="ExtermiconDBModel.FK__tblUser__emp_id__1273C1CD" FromRole="tblEmployee" ToRole="tblUser" />
+        </EntityType>
+        <EntityType Name="tblHoliday">
+          <Key>
+            <PropertyRef Name="holi_id" />
+          </Key>
+          <Property Type="Int32" Name="holi_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="holiday" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="description" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="start_date" Precision="3" />
+          <Property Type="DateTime" Name="end_date" Precision="3" />
+        </EntityType>
+        <EntityType Name="tblLogin">
+          <Key>
+            <PropertyRef Name="log_id" />
+          </Key>
+          <Property Type="Int32" Name="log_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="in_time" Precision="3" />
+          <Property Type="DateTime" Name="out_time" Precision="3" />
+          <Property Type="Int32" Name="user_id" />
+          <Property Type="Int32" Name="sched_id" />
+          <Property Type="DateTime" Name="date" Precision="3" />
+          <Property Type="String" Name="note" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tblSchedule" Relationship="ExtermiconDBModel.FK_tblLogin_tblSchedule" FromRole="tblLogin" ToRole="tblSchedule" />
+          <NavigationProperty Name="tblUser" Relationship="ExtermiconDBModel.FK_tblLogin_tblUser" FromRole="tblLogin" ToRole="tblUser" />
+        </EntityType>
+        <EntityType Name="tblRole">
+          <Key>
+            <PropertyRef Name="role_id" />
+          </Key>
+          <Property Type="Int32" Name="role_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="role" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tblUsers" Relationship="ExtermiconDBModel.FK__tblUser__role_id__5629CD9C" FromRole="tblRole" ToRole="tblUser" />
+        </EntityType>
+        <EntityType Name="tblSchedule">
+          <Key>
+            <PropertyRef Name="sched_id" />
+          </Key>
+          <Property Type="Int32" Name="sched_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="in_time" Precision="3" />
+          <Property Type="DateTime" Name="out_time" Precision="3" />
+          <NavigationProperty Name="tblLogins" Relationship="ExtermiconDBModel.FK_tblLogin_tblSchedule" FromRole="tblSchedule" ToRole="tblLogin" />
+          <NavigationProperty Name="tblUsers" Relationship="ExtermiconDBModel.FK_tblUser_tblSchedule" FromRole="tblSchedule" ToRole="tblUser" />
+        </EntityType>
+        <EntityType Name="tblUser">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Type="Int32" Name="user_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="username" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="password" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="emp_id" Nullable="false" />
+          <Property Type="String" Name="passcode" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="sched_id" />
+          <Property Type="Int32" Name="role_id" />
+          <NavigationProperty Name="tblEmployee" Relationship="ExtermiconDBModel.FK__tblUser__emp_id__1273C1CD" FromRole="tblUser" ToRole="tblEmployee" />
+          <NavigationProperty Name="tblLogins" Relationship="ExtermiconDBModel.FK_tblLogin_tblUser" FromRole="tblUser" ToRole="tblLogin" />
+          <NavigationProperty Name="tblRole" Relationship="ExtermiconDBModel.FK__tblUser__role_id__5629CD9C" FromRole="tblUser" ToRole="tblRole" />
+          <NavigationProperty Name="tblSchedule" Relationship="ExtermiconDBModel.FK_tblUser_tblSchedule" FromRole="tblUser" ToRole="tblSchedule" />
+        </EntityType>
+        <EntityType Name="vw_deduction_no_zero">
+          <Key>
+            <PropertyRef Name="payslip_id" />
+            <PropertyRef Name="deduction_type_id" />
+            <PropertyRef Name="deduction_id" />
+          </Key>
+          <Property Type="String" Name="name" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="amount" Precision="29" Scale="2" />
+          <Property Type="Int32" Name="payslip_id" Nullable="false" />
+          <Property Type="Int32" Name="deduction_type_id" Nullable="false" />
+          <Property Type="Int32" Name="deduction_id" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vw_earning_no_zero">
+          <Key>
+            <PropertyRef Name="earning_type_id" />
+            <PropertyRef Name="payslip_id" />
+            <PropertyRef Name="earning_id" />
+          </Key>
+          <Property Type="String" Name="name" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="earning_type_id" Nullable="false" />
+          <Property Type="Decimal" Name="amount" Precision="29" Scale="2" />
+          <Property Type="Int32" Name="payslip_id" Nullable="false" />
+          <Property Type="Int32" Name="earning_id" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vw_emp_user">
+          <Key>
+            <PropertyRef Name="emp_id" />
+            <PropertyRef Name="user_id" />
+            <PropertyRef Name="first_name" />
+            <PropertyRef Name="last_name" />
+            <PropertyRef Name="username" />
+            <PropertyRef Name="password" />
+            <PropertyRef Name="sched_id" />
+            <PropertyRef Name="role_id" />
+          </Key>
+          <Property Type="Int32" Name="emp_id" Nullable="false" />
+          <Property Type="Int32" Name="user_id" Nullable="false" />
+          <Property Type="String" Name="first_name" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="middle_name" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="last_name" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="username" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="password" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="passcode" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="sched_id" Nullable="false" />
+          <Property Type="Int32" Name="role_id" Nullable="false" />
+          <Property Type="String" Name="schedule" MaxLength="17" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vw_emp_with_no_account">
+          <Key>
+            <PropertyRef Name="emp_id" />
+          </Key>
+          <Property Type="String" Name="name" MaxLength="61" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="user_id" />
+          <Property Type="Int32" Name="emp_id" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vw_employee_list">
+          <Key>
+            <PropertyRef Name="name" />
+            <PropertyRef Name="emp_id" />
+          </Key>
+          <Property Type="String" Name="name" Nullable="false" MaxLength="61" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="emp_id" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vw_log_in_history">
+          <Key>
+            <PropertyRef Name="log_id" />
+          </Key>
+          <Property Type="Int32" Name="log_id" Nullable="false" />
+          <Property Type="DateTime" Name="in_time" Precision="3" />
+          <Property Type="DateTime" Name="out_time" Precision="3" />
+          <Property Type="Int32" Name="user_id" />
+          <Property Type="Int32" Name="sched_id" />
+          <Property Type="String" Name="date" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dtstamp" Precision="3" />
+          <Property Type="String" Name="note" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="schedule" MaxLength="63" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="hours_spent" />
+          <Property Type="Double" Name="hours_over" />
+          <Property Type="String" Name="name" MaxLength="61" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="log" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="emp_id" />
+        </EntityType>
+        <EntityType Name="vw_payslip_summary">
+          <Key>
+            <PropertyRef Name="payslip_id" />
+            <PropertyRef Name="issue_date" />
+            <PropertyRef Name="COLA" />
+            <PropertyRef Name="basic_rate" />
+          </Key>
+          <Property Type="Int32" Name="payslip_id" Nullable="false" />
+          <Property Type="DateTime" Name="issue_date" Nullable="false" Precision="3" />
+          <Property Type="Decimal" Name="COLA" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="basic_rate" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="DateTime" Name="period_start" Precision="3" />
+          <Property Type="DateTime" Name="period_end" Precision="3" />
+          <Property Type="Int32" Name="emp_id" />
+          <Property Type="Decimal" Name="dayspresent" Precision="38" Scale="6" />
+          <Property Type="Decimal" Name="amount" Precision="38" Scale="2" />
+          <Property Type="Int32" Name="Expr1" />
+          <Property Type="String" Name="name" MaxLength="61" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vw_schedule_list">
+          <Key>
+            <PropertyRef Name="sched_id" />
+          </Key>
+          <Property Type="Int32" Name="sched_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="schedule" MaxLength="17" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vw_today_logs">
+          <Key>
+            <PropertyRef Name="first_name" />
+            <PropertyRef Name="last_name" />
+            <PropertyRef Name="user_id" />
+            <PropertyRef Name="log_id" />
+            <PropertyRef Name="emp_id" />
+          </Key>
+          <Property Type="DateTime" Name="in_time" Precision="3" />
+          <Property Type="DateTime" Name="out_time" Precision="3" />
+          <Property Type="String" Name="first_name" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="last_name" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="user_id" Nullable="false" />
+          <Property Type="Int32" Name="log_id" Nullable="false" />
+          <Property Type="Int32" Name="emp_id" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vw_user_schedule">
+          <Key>
+            <PropertyRef Name="sched_id" />
+            <PropertyRef Name="user_id" />
+            <PropertyRef Name="emp_id" />
+          </Key>
+          <Property Type="String" Name="name" MaxLength="61" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="sched_id" Nullable="false" />
+          <Property Type="Int32" Name="user_id" Nullable="false" />
+          <Property Type="Int32" Name="emp_id" Nullable="false" />
+          <Property Type="DateTime" Name="in_time" Precision="3" />
+          <Property Type="DateTime" Name="out_time" Precision="3" />
+        </EntityType>
+        <Association Name="FK__Deduction__deduc__45F365D3">
+          <End Type="ExtermiconDBModel.DeductionType" Role="DeductionType" Multiplicity="1" />
+          <End Type="ExtermiconDBModel.Deduction" Role="Deduction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeductionType">
+              <PropertyRef Name="deduction_type_id" />
+            </Principal>
+            <Dependent Role="Deduction">
+              <PropertyRef Name="deduction_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Deduction__paysl__46E78A0C">
+          <End Type="ExtermiconDBModel.Payslip" Role="Payslip" Multiplicity="1" />
+          <End Type="ExtermiconDBModel.Deduction" Role="Deduction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Payslip">
+              <PropertyRef Name="payslip_id" />
+            </Principal>
+            <Dependent Role="Deduction">
+              <PropertyRef Name="payslip_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Earning__earning__52593CB8">
+          <End Type="ExtermiconDBModel.EarningType" Role="EarningType" Multiplicity="1" />
+          <End Type="ExtermiconDBModel.Earning" Role="Earning" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EarningType">
+              <PropertyRef Name="earning_type_id" />
+            </Principal>
+            <Dependent Role="Earning">
+              <PropertyRef Name="earning_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Earning__payslip__534D60F1">
+          <End Type="ExtermiconDBModel.Payslip" Role="Payslip" Multiplicity="1" />
+          <End Type="ExtermiconDBModel.Earning" Role="Earning" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Payslip">
+              <PropertyRef Name="payslip_id" />
+            </Principal>
+            <Dependent Role="Earning">
+              <PropertyRef Name="payslip_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PayPeriod__pay_p__35BCFE0A">
+          <End Type="ExtermiconDBModel.PayPeriodType" Role="PayPeriodType" Multiplicity="1" />
+          <End Type="ExtermiconDBModel.PayPeriod" Role="PayPeriod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PayPeriodType">
+              <PropertyRef Name="pay_period_type_id" />
+            </Principal>
+            <Dependent Role="PayPeriod">
+              <PropertyRef Name="pay_period_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Payslip__emp_id__571DF1D5">
+          <End Type="ExtermiconDBModel.tblEmployee" Role="tblEmployee" Multiplicity="0..1" />
+          <End Type="ExtermiconDBModel.Payslip" Role="Payslip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEmployee">
+              <PropertyRef Name="emp_id" />
+            </Principal>
+            <Dependent Role="Payslip">
+              <PropertyRef Name="emp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblUser__emp_id__1273C1CD">
+          <End Type="ExtermiconDBModel.tblEmployee" Role="tblEmployee" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ExtermiconDBModel.tblUser" Role="tblUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEmployee">
+              <PropertyRef Name="emp_id" />
+            </Principal>
+            <Dependent Role="tblUser">
+              <PropertyRef Name="emp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblLogin_tblSchedule">
+          <End Type="ExtermiconDBModel.tblSchedule" Role="tblSchedule" Multiplicity="0..1" />
+          <End Type="ExtermiconDBModel.tblLogin" Role="tblLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSchedule">
+              <PropertyRef Name="sched_id" />
+            </Principal>
+            <Dependent Role="tblLogin">
+              <PropertyRef Name="sched_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblLogin_tblUser">
+          <End Type="ExtermiconDBModel.tblUser" Role="tblUser" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ExtermiconDBModel.tblLogin" Role="tblLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUser">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="tblLogin">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblUser__role_id__5629CD9C">
+          <End Type="ExtermiconDBModel.tblRole" Role="tblRole" Multiplicity="0..1" />
+          <End Type="ExtermiconDBModel.tblUser" Role="tblUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblRole">
+              <PropertyRef Name="role_id" />
+            </Principal>
+            <Dependent Role="tblUser">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUser_tblSchedule">
+          <End Type="ExtermiconDBModel.tblSchedule" Role="tblSchedule" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ExtermiconDBModel.tblUser" Role="tblUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSchedule">
+              <PropertyRef Name="sched_id" />
+            </Principal>
+            <Dependent Role="tblUser">
+              <PropertyRef Name="sched_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ExtermiconDBModelStoreContainer" CdmEntityContainer="ExtermiconDBEntities">
+          <EntitySetMapping Name="Deductions">
+            <EntityTypeMapping TypeName="ExtermiconDBModel.Deduction">
+              <MappingFragment StoreEntitySet="Deduction">
+                <ScalarProperty Name="taxable" ColumnName="taxable" />
+                <ScalarProperty Name="payslip_id" ColumnName="payslip_id" />
+                <ScalarProperty Name="deduction_type_id" ColumnName="deduction_type_id" />
+                <ScalarProperty Name="rate" ColumnName="rate" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="deduction_id" ColumnName="deduction_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DeductionTypes">
+            <EntityTypeMapping TypeName="ExtermiconDBModel.DeductionType">
+              <MappingFragment StoreEntitySet="DeductionType">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="deduction_type_id" ColumnName="deduction_type_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Earnings">
+            <EntityTypeMapping TypeName="ExtermiconDBModel.Earning">
+              <MappingFragment StoreEntitySet="Earning">
+                <ScalarProperty Name="taxable" ColumnName="taxable" />
+                <ScalarProperty Name="payslip_id" ColumnName="payslip_id" />
+                <ScalarProperty Name="earning_type_id" ColumnName="earning_type_id" />
+                <ScalarProperty Name="rate" ColumnName="rate" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="earning_id" ColumnName="earning_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EarningTypes">
+            <EntityTypeMapping TypeName="ExtermiconDBModel.EarningType">
+              <MappingFragment StoreEntitySet="EarningType">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="earning_type_id" ColumnName="earning_type_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PayPeriods">
+            <EntityTypeMapping TypeName="ExtermiconDBModel.PayPeriod">
+              <MappingFragment StoreEntitySet="PayPeriod">
+                <ScalarProperty Name="pay_period_type_id" ColumnName="pay_period_type_id" />
+                <ScalarProperty Name="enddate" ColumnName="enddate" />
+                <ScalarProperty Name="startdate" ColumnName="startdate" />
+                <ScalarProperty Name="pay_period_id" ColumnName="pay_period_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PayPeriodTypes">
+            <EntityTypeMapping TypeName="ExtermiconDBModel.PayPeriodType">
+              <MappingFragment StoreEntitySet="PayPeriodType">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="pay_period_type_id" ColumnName="pay_period_type_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Payslips">
+            <EntityTypeMapping TypeName="ExtermiconDBModel.Payslip">
+              <MappingFragment StoreEntitySet="Payslip">
+                <ScalarProperty Name="dayspresent" ColumnName="dayspresent" />
+                <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+                <ScalarProperty Name="period_end" ColumnName="period_end" />
+                <ScalarProperty Name="period_start" ColumnName="period_start" />
+                <ScalarProperty Name="basic_rate" ColumnName="basic_rate" />
+                <ScalarProperty Name="COLA" ColumnName="COLA" />
+                <ScalarProperty Name="issue_date" ColumnName="issue_date" />
+                <ScalarProperty Name="payslip_id" ColumnName="payslip_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblEmployees">
+            <EntityTypeMapping TypeName="ExtermiconDBModel.tblEmployee">
+              <MappingFragment StoreEntitySet="tblEmployee">
+                <ScalarProperty Name="tax_dependent_type_id" ColumnName="tax_dependent_type_id" />
+                <ScalarProperty Name="cola" ColumnName="cola" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="designation" ColumnName="designation" />
+                <ScalarProperty Name="basic_salary" ColumnName="basic_salary" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="middle_name" ColumnName="middle_name" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="employee_number" ColumnName="employee_number" />
+                <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblHolidays">
+            <EntityTypeMapping TypeName="ExtermiconDBModel.tblHoliday">
+              <MappingFragment StoreEntitySet="tblHoliday">
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="start_date" ColumnName="start_date" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="holiday" ColumnName="holiday" />
+                <ScalarProperty Name="holi_id" ColumnName="holi_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblLogins">
+            <EntityTypeMapping TypeName="ExtermiconDBModel.tblLogin">
+              <MappingFragment StoreEntitySet="tblLogin">
+                <ScalarProperty Name="note" ColumnName="note" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="sched_id" ColumnName="sched_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="out_time" ColumnName="out_time" />
+                <ScalarProperty Name="in_time" ColumnName="in_time" />
+                <ScalarProperty Name="log_id" ColumnName="log_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblRoles">
+            <EntityTypeMapping TypeName="ExtermiconDBModel.tblRole">
+              <MappingFragment StoreEntitySet="tblRole">
+                <ScalarProperty Name="role" ColumnName="role" />
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblSchedules">
+            <EntityTypeMapping TypeName="ExtermiconDBModel.tblSchedule">
+              <MappingFragment StoreEntitySet="tblSchedule">
+                <ScalarProperty Name="out_time" ColumnName="out_time" />
+                <ScalarProperty Name="in_time" ColumnName="in_time" />
+                <ScalarProperty Name="sched_id" ColumnName="sched_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUsers">
+            <EntityTypeMapping TypeName="ExtermiconDBModel.tblUser">
+              <MappingFragment StoreEntitySet="tblUser">
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+                <ScalarProperty Name="sched_id" ColumnName="sched_id" />
+                <ScalarProperty Name="passcode" ColumnName="passcode" />
+                <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_deduction_no_zero">
+            <EntityTypeMapping TypeName="ExtermiconDBModel.vw_deduction_no_zero">
+              <MappingFragment StoreEntitySet="vw_deduction_no_zero">
+                <ScalarProperty Name="deduction_id" ColumnName="deduction_id" />
+                <ScalarProperty Name="deduction_type_id" ColumnName="deduction_type_id" />
+                <ScalarProperty Name="payslip_id" ColumnName="payslip_id" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_earning_no_zero">
+            <EntityTypeMapping TypeName="ExtermiconDBModel.vw_earning_no_zero">
+              <MappingFragment StoreEntitySet="vw_earning_no_zero">
+                <ScalarProperty Name="earning_id" ColumnName="earning_id" />
+                <ScalarProperty Name="payslip_id" ColumnName="payslip_id" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="earning_type_id" ColumnName="earning_type_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_emp_user">
+            <EntityTypeMapping TypeName="ExtermiconDBModel.vw_emp_user">
+              <MappingFragment StoreEntitySet="vw_emp_user">
+                <ScalarProperty Name="schedule" ColumnName="schedule" />
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+                <ScalarProperty Name="sched_id" ColumnName="sched_id" />
+                <ScalarProperty Name="passcode" ColumnName="passcode" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="middle_name" ColumnName="middle_name" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_emp_with_no_account">
+            <EntityTypeMapping TypeName="ExtermiconDBModel.vw_emp_with_no_account">
+              <MappingFragment StoreEntitySet="vw_emp_with_no_account">
+                <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_employee_list">
+            <EntityTypeMapping TypeName="ExtermiconDBModel.vw_employee_list">
+              <MappingFragment StoreEntitySet="vw_employee_list">
+                <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_log_in_history">
+            <EntityTypeMapping TypeName="ExtermiconDBModel.vw_log_in_history">
+              <MappingFragment StoreEntitySet="vw_log_in_history">
+                <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+                <ScalarProperty Name="log" ColumnName="log" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="hours_over" ColumnName="hours_over" />
+                <ScalarProperty Name="hours_spent" ColumnName="hours_spent" />
+                <ScalarProperty Name="schedule" ColumnName="schedule" />
+                <ScalarProperty Name="note" ColumnName="note" />
+                <ScalarProperty Name="dtstamp" ColumnName="dtstamp" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="sched_id" ColumnName="sched_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="out_time" ColumnName="out_time" />
+                <ScalarProperty Name="in_time" ColumnName="in_time" />
+                <ScalarProperty Name="log_id" ColumnName="log_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_payslip_summary">
+            <EntityTypeMapping TypeName="ExtermiconDBModel.vw_payslip_summary">
+              <MappingFragment StoreEntitySet="vw_payslip_summary">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="dayspresent" ColumnName="dayspresent" />
+                <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+                <ScalarProperty Name="period_end" ColumnName="period_end" />
+                <ScalarProperty Name="period_start" ColumnName="period_start" />
+                <ScalarProperty Name="basic_rate" ColumnName="basic_rate" />
+                <ScalarProperty Name="COLA" ColumnName="COLA" />
+                <ScalarProperty Name="issue_date" ColumnName="issue_date" />
+                <ScalarProperty Name="payslip_id" ColumnName="payslip_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_schedule_list">
+            <EntityTypeMapping TypeName="ExtermiconDBModel.vw_schedule_list">
+              <MappingFragment StoreEntitySet="vw_schedule_list">
+                <ScalarProperty Name="schedule" ColumnName="schedule" />
+                <ScalarProperty Name="sched_id" ColumnName="sched_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_today_logs">
+            <EntityTypeMapping TypeName="ExtermiconDBModel.vw_today_logs">
+              <MappingFragment StoreEntitySet="vw_today_logs">
+                <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+                <ScalarProperty Name="log_id" ColumnName="log_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="out_time" ColumnName="out_time" />
+                <ScalarProperty Name="in_time" ColumnName="in_time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_user_schedule">
+            <EntityTypeMapping TypeName="ExtermiconDBModel.vw_user_schedule">
+              <MappingFragment StoreEntitySet="vw_user_schedule">
+                <ScalarProperty Name="out_time" ColumnName="out_time" />
+                <ScalarProperty Name="in_time" ColumnName="in_time" />
+                <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="sched_id" ColumnName="sched_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

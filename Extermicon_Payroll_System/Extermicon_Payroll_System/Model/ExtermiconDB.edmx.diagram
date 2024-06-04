@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="93f883e668ad409294ed424482252d8f" Name="Diagram1">
+        <EntityTypeShape EntityType="ExtermiconDBModel.Deduction" Width="1.5" PointX="11.675218529848019" PointY="22.037217880616531" />
+        <EntityTypeShape EntityType="ExtermiconDBModel.DeductionType" Width="1.5" PointX="5.3999325751326666" PointY="3.2698018119064169" />
+        <EntityTypeShape EntityType="ExtermiconDBModel.Earning" Width="1.5" PointX="5.9185366434597118" PointY="26.786554796056148" />
+        <EntityTypeShape EntityType="ExtermiconDBModel.EarningType" Width="1.5" PointX="5.1988704880694261" PointY="0.29191826297525236" />
+        <EntityTypeShape EntityType="ExtermiconDBModel.PayPeriod" Width="1.5" PointX="8.95819121085023" PointY="0.99265141831368742" />
+        <EntityTypeShape EntityType="ExtermiconDBModel.PayPeriodType" Width="1.5" PointX="4.7269479319113064" PointY="15.830108828763528" />
+        <EntityTypeShape EntityType="ExtermiconDBModel.Payslip" Width="1.5" PointX="4.2762990259920706" PointY="24.76525357028714" />
+        <EntityTypeShape EntityType="ExtermiconDBModel.tblEmployee" Width="1.5" PointX="1.9987833937624393" PointY="12.654879262975827" />
+        <EntityTypeShape EntityType="ExtermiconDBModel.tblHoliday" Width="1.5" PointX="2.5367874216925292" PointY="30.534645929250235" />
+        <EntityTypeShape EntityType="ExtermiconDBModel.tblLogin" Width="1.5" PointX="3.9487926997005904" PointY="2.3260723065240647" />
+        <EntityTypeShape EntityType="ExtermiconDBModel.tblRole" Width="1.5" PointX="9.7958074071425045" PointY="16.40313901771006" />
+        <EntityTypeShape EntityType="ExtermiconDBModel.tblSchedule" Width="1.5" PointX="1.1120580626242134" PointY="0.87654225569057387" />
+        <EntityTypeShape EntityType="ExtermiconDBModel.tblUser" Width="1.5" PointX="10.874333369952781" PointY="12.062491914286508" />
+        <EntityTypeShape EntityType="ExtermiconDBModel.vw_deduction_no_zero" Width="1.5" PointX="10.533204841675797" PointY="31.34997323125134" />
+        <EntityTypeShape EntityType="ExtermiconDBModel.vw_earning_no_zero" Width="1.5" PointX="11.706280566615185" PointY="23.155584018284262" />
+        <EntityTypeShape EntityType="ExtermiconDBModel.vw_emp_user" Width="1.5" PointX="2.9974323897610571" PointY="20.42932399568582" />
+        <EntityTypeShape EntityType="ExtermiconDBModel.vw_emp_with_no_account" Width="1.5" PointX="7.3294754192836" PointY="23.452314089728667" />
+        <EntityTypeShape EntityType="ExtermiconDBModel.vw_employee_list" Width="1.5" PointX="4.3987817374983713" PointY="13.648769832052649" />
+        <EntityTypeShape EntityType="ExtermiconDBModel.vw_log_in_history" Width="1.5" PointX="1.4959072682521806" PointY="31.180377944922249" />
+        <EntityTypeShape EntityType="ExtermiconDBModel.vw_payslip_summary" Width="1.5" PointX="10.983810178462328" PointY="18.211061217920417" />
+        <EntityTypeShape EntityType="ExtermiconDBModel.vw_schedule_list" Width="1.5" PointX="0.48838888876530762" PointY="27.122426090353368" />
+        <EntityTypeShape EntityType="ExtermiconDBModel.vw_today_logs" Width="1.5" PointX="2.2411207269137359" PointY="31.332024797486152" />
+        <EntityTypeShape EntityType="ExtermiconDBModel.vw_user_schedule" Width="1.5" PointX="4.2385607586421825" PointY="0.7438119057304281" />
+        <AssociationConnector Association="ExtermiconDBModel.FK__Deduction__deduc__45F365D3" />
+        <AssociationConnector Association="ExtermiconDBModel.FK__Deduction__paysl__46E78A0C" />
+        <AssociationConnector Association="ExtermiconDBModel.FK__Earning__earning__52593CB8" />
+        <AssociationConnector Association="ExtermiconDBModel.FK__Earning__payslip__534D60F1" />
+        <AssociationConnector Association="ExtermiconDBModel.FK__PayPeriod__pay_p__35BCFE0A" />
+        <AssociationConnector Association="ExtermiconDBModel.FK__Payslip__emp_id__571DF1D5" />
+        <AssociationConnector Association="ExtermiconDBModel.FK__tblUser__emp_id__1273C1CD" />
+        <AssociationConnector Association="ExtermiconDBModel.FK_tblLogin_tblSchedule" />
+        <AssociationConnector Association="ExtermiconDBModel.FK_tblLogin_tblUser" />
+        <AssociationConnector Association="ExtermiconDBModel.FK__tblUser__role_id__5629CD9C" />
+        <AssociationConnector Association="ExtermiconDBModel.FK_tblUser_tblSchedule" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

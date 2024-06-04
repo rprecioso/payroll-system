@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9153f4d1555e4d5e8b6c4cffc345c84e" Name="Diagram1">
+        <EntityTypeShape EntityType="PH_DEDUCTIONSModel.PagibigRate" Width="1.5" PointX="10.875" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PH_DEDUCTIONSModel.PhilHealthRate" Width="1.5" PointX="9.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PH_DEDUCTIONSModel.SalaryType" Width="1.5" PointX="0.625" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PH_DEDUCTIONSModel.SocialSecurityServiceRate" Width="1.5" PointX="7.625" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PH_DEDUCTIONSModel.TaxDependentType" Width="1.5" PointX="4" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PH_DEDUCTIONSModel.WithHoldingTaxRate" Width="1.5" PointX="2.375" PointY="0.625" IsExpanded="true" />
+        <AssociationConnector Association="PH_DEDUCTIONSModel.FK__WithHoldi__salar__145C0A3F" ManuallyRouted="false" />
+        <AssociationConnector Association="PH_DEDUCTIONSModel.FK__WithHoldi__tax_d__15502E78" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
